@@ -14,6 +14,8 @@ import UIKit
         var bottomText : String?
         var originalImage : UIImage?
         var memedImgae : UIImage?
-
     }
+
+
+
     

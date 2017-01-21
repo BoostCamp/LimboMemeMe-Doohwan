@@ -12,10 +12,26 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    var memes = [Meme]()
+    var anyArr : [[String : Any]] = []
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let setting = UserDefaults.standard
+        if let meme = setting.array(forKey: "memes") as? [[String : Any]]{
+            print("not nil")
+            anyArr = meme
+            for item in meme {
+                let topText = item["topText"] as! NSString as String
+                let bottomText = item["bottomText"] as! NSString as String
+                let originalImage = UIImage(data: (item["originalImage"] as! NSData) as Data)
+                let memedImage = UIImage(data: (item["memedImage"] as! NSData) as Data)
+                let temp = Meme(topText: topText, bottomText: bottomText, originalImage: originalImage, memedImgae: memedImage)
+                memes.append(temp)
+            }
+            
+        }else{
+            print("nil")
+        }
         return true
     }
 

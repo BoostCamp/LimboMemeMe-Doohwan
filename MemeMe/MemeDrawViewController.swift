@@ -10,10 +10,22 @@ import UIKit
 
 class MemeDrawViewController: UIViewController {
 
+    var backimage : UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let drawView = 	DrawingView()
+        self.view.addSubview(drawView)
+        
+        drawView.backgroundColor = UIColor(patternImage: backimage!)
+        drawView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let horizontals = NSLayoutConstraint.constraints(withVisualFormat: "|-0-[drawView]-0-|", options: [], metrics: nil, views: ["drawView":drawView])
+        let verticals = NSLayoutConstraint.constraints(withVisualFormat: "V:|-30-[drawView]-0-|", options: [], metrics: nil, views: ["drawView":drawView])
+        
+        self.view.addConstraints(horizontals)
+        self.view.addConstraints(verticals)
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +33,11 @@ class MemeDrawViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancleAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func saveAction(_ sender: Any) {
+    }
 
     /*
     // MARK: - Navigation
