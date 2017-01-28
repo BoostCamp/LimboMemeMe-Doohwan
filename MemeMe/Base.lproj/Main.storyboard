@@ -140,7 +140,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0O-WQ-KJP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="Jgf-Ap-QCX">
+                                    <navigationItem title="Paint" id="Jgf-Ap-QCX">
                                         <barButtonItem key="leftBarButtonItem" systemItem="save" id="2gK-Zn-suc">
                                             <connections>
                                                 <action selector="saveAction:" destination="Xbl-Aj-Pcs" id="j7X-cK-JFQ"/>
