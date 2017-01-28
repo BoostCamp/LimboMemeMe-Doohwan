@@ -7,9 +7,8 @@
 //
 
 import UIKit
-
+//custom collectionView cell class
 class AWCollectionCell: UICollectionViewCell {
     @IBOutlet weak var icon:UIImageView!
     @IBOutlet weak var label:UILabel!
-    
 }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// collectionView custom cell class
 class MemeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var colCellImage: UIImageView!

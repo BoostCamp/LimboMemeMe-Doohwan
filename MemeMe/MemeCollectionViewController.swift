@@ -7,13 +7,15 @@
 //
 
 import UIKit
-
+//CollectionView Class
 class MemeCollectionViewController: UICollectionViewController{
 
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //collectionView custom cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell02", for: indexPath) as! MemeCollectionViewCell
     
         cell.colCellImage.image = appDelegate.memes[indexPath.row].memedImgae
@@ -31,6 +33,7 @@ class MemeCollectionViewController: UICollectionViewController{
         performSegue(withIdentifier: "image_segue2", sender: appDelegate.memes[indexPath.row].memedImgae)
     }
     override func viewDidLoad() {
+        //collction view flowlayout Set
         let space:CGFloat = 3.0
         let dimension = (view.frame.size.width - (2 * space)) / 3.0
         
@@ -45,16 +48,4 @@ class MemeCollectionViewController: UICollectionViewController{
             imageVC.memedImage = memedImage
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -7,34 +7,47 @@
 //
 
 import UIKit
-
+//MemedImage viewController
 class MemeImageViewController: UIViewController {
 
     @IBOutlet weak var memeImage: UIImageView!
+    
     var memedImage : UIImage?
    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
+        //Device Orientation Observer등록
+        NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        //Device Orientaion에 따라 ImgaeView ContentMode 설정
+        if UIDevice.current.orientation == UIDeviceOrientation.portrait {
+            memeImage.contentMode = .scaleAspectFill
+        }else {
+            memeImage.contentMode = .scaleAspectFit
+        }
         memeImage.image = memedImage
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    func rotated() {
+        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+            memeImage.contentMode = .scaleAspectFit
+        }
+        
+        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
+            memeImage.contentMode = .scaleAspectFill
+        }
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        //Device Orientation Observer해제
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

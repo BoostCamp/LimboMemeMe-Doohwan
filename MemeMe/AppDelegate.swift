@@ -11,14 +11,17 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+   
     var window: UIWindow?
     var memes = [Meme]()
     var anyArr : [[String : Any]] = []
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // App 부팅 시 UserDefaults에 저장되어 있는 데이터 로드
         let setting = UserDefaults.standard
-        if let meme = setting.array(forKey: "memes") as? [[String : Any]]{
-            print("not nil")
+        if let meme = setting.array(forKey: "memes") as? [[String : Any]]{ //DictionaryArray로 Type 캐스팅
             anyArr = meme
             for item in meme {
                 let topText = item["topText"] as! NSString as String
@@ -29,8 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 memes.append(temp)
             }
             
-        }else{
-            print("nil")
         }
         return true
     }
