@@ -17,7 +17,7 @@
 -----------
 ## MemeMe 기능소개
 <br /><br />
-
+[시연동영상](https://youtu.be/taUkyUWzSPk)
 * Action을 끝낸 이미지에 대하여 파일 리스트 제공
   <br /><br />
   1. TableView (파일 삭제, 순서 변경 가능)
