@@ -8,13 +8,16 @@
 
 
 -----------
+
 ## MemeMe Application 소개
 * 앨범, 카메라를 이용하여 이미지를 가져온 후 뷰에 상,하단에 텍스트를 추가하여 공유, 저장, 전송 등의 이벤트 진행
 * 액션이 끝난 이미지에 대하여 TableVIew, CollectionView 의 리스트 제공 (삭제, 순서 변경 등 가능)
 * 리스트에 있는 이미지 보기 제공
 * 리스트 이미지 등와 텍스트등은 별도의 파일을 생성하지 않고 캐시로 만들어 관리
 <br /><br /><br />
+
 -----------
+
 ## MemeMe 기능소개
 <br /><br />
 [시연동영상](https://youtu.be/taUkyUWzSPk)
@@ -53,7 +56,7 @@
 * 데이터 저장
     <blockquote>
   <p>    appDelegate.anyArr.append(["topText":meme.topText! as NSString,"bottomText":meme.bottomText! as NSString,"originalImage":UIImagePNGRepresentation(meme.originalImage!)! as NSData,"memedImage":UIImagePNGRepresentation(meme.memedImgae!)! as NSData])
-    
+    <br />
     setting.set(appDelegate.anyArr, forKey: "memes") </p>
 </blockquote>
 <br /><br />
